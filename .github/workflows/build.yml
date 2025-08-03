@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: build with ninja
-        run: ninja .
+        run: ninja polyfill-glibc
       - name: archive
         run: tar cf polyfill-glibc.tar .
       - uses: actions/upload-artifact@v4
