@@ -1,0 +1,17 @@
+on:
+  workflow_dispatch:
+name: build
+jobs:
+  build:
+    name: compile
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: build with ninja
+        run: ninja .
+      - name: archive
+        run: tar cf polyfill-glibc.tar .
+      - uses: actions/upload-artifact@v4
+        with:
+          path: polyfill-glibc.tar
